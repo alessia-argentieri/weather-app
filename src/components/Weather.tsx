@@ -1,4 +1,10 @@
 import { FC, useState, FormEventHandler } from "react";
+import clear from "../assets/images/clear.jpg";
+import clouds from "../assets/images/clouds.jpg";
+import fog from "../assets/images/fog.jpg";
+import snow from "../assets/images/snow.jpg";
+import rain from "../assets/images/rain.jpg";
+import thunderstorm from "../assets/images/thunderstorm.jpg";
 
 type Api = {
   key: string;
@@ -54,6 +60,22 @@ const Weather: FC = () => {
       .catch((error) => console.log(`Error ${error}`));
   };
 
+  const backgroundImage = (main: string): string => {
+    if (main === "Thunderstorm" || main === "Squall" || main === "Tornado") {
+      return thunderstorm;
+    } else if (main === "Rain" || main === "Drizzle") {
+      return rain;
+    } else if (main === "Snow") {
+      return snow;
+    } else if (main === "Clear") {
+      return clear;
+    } else if (main === "Clouds") {
+      return clouds;
+    } else {
+      return fog;
+    }
+  };
+
   return (
     <>
       <div>
@@ -74,6 +96,9 @@ const Weather: FC = () => {
         </form>
         {data !== undefined && (
           <div className="container">
+            <style>{`body { background-image: url(${backgroundImage(
+              data.weather[0].main
+            )}); }`}</style>
             <div className="weather-box">
               <h2 className="item">
                 {data.name}, {data.sys.country}
