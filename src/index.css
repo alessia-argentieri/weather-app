@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --dark-color: rgb(0, 23, 63);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-image: url(assets/images/weather.jpg);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+
+.header {
+  text-align: center;
+  margin: 20px 0px 50px;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px var(--dark-color);
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.input {
+  height: 50px;
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  color: var(--dark-color);
+}
+
+input:focus {
+  border: 1px solid var(--dark-color);
+  outline: none;
+}
+::placeholder {
+  color: var(--dark-color);
+  opacity: 0.7;
+}
+
+.btn {
+  background: #fff;
+  font-size: 16px;
+  color: var(--dark-color);
+  height: 50px;
+  width: 100px;
+  padding: 16px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--dark-color);
+  color: #fff;
+  border: 1px solid #fff;
+}
