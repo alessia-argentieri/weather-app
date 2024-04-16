@@ -154,3 +154,18 @@ input:focus {
   width: 150px;
   height: auto;
 }
+
+@media (max-width: 600px) {
+  .weather-box {
+    width: 400px;
+  }
+}
+
+@media (max-width: 400px) {
+  .weather-box {
+    margin: 0px;
+  }
+  .weather-box .item {
+    width: 30px;
+  }
+}
