@@ -1,4 +1,5 @@
 import { FC, useState, FormEventHandler } from "react";
+import { format } from "date-fns";
 import clear from "../assets/images/clear.jpg";
 import clouds from "../assets/images/clouds.jpg";
 import fog from "../assets/images/fog.jpg";
@@ -76,6 +77,13 @@ const Weather: FC = () => {
     }
   };
 
+  const getLocalTime = (
+    utc: number,
+    timezone: number,
+    suntime: number
+  ): number =>
+    (utc + timezone + new Date(suntime * 1000).getTimezoneOffset() * 60) * 1000;
+
   return (
     <>
       <div>
@@ -122,6 +130,33 @@ const Weather: FC = () => {
               </h2>
               <h2 className="item">
                 Wind speed: {Math.round(data.wind.speed * 3.6)} km/h
+              </h2>
+              <br />
+              <h2 className="item">
+                Sunrise:{" "}
+                {format(
+                  new Date(
+                    getLocalTime(
+                      data.sys.sunrise,
+                      data.timezone,
+                      data.sys.sunrise
+                    )
+                  ),
+                  "HH:mm"
+                )}
+                <br />
+                Sunset:{" "}
+                {format(
+                  new Date(
+                    getLocalTime(
+                      data.sys.sunset,
+                      data.timezone,
+                      data.sys.sunset
+                    )
+                  ),
+                  "HH:mm"
+                )}
+                <br />
               </h2>
             </div>
           </div>
