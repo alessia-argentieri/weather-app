@@ -71,3 +71,86 @@ input:focus {
   color: #fff;
   border: 1px solid #fff;
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.weather-box {
+  display: grid;
+  align-items: center;
+  height: 500px;
+  width: 600px;
+  margin: 30px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  text-align: left;
+  background: #fff;
+  color: var(--dark-color);
+  border-radius: 5px;
+}
+
+.weather-box .item:nth-of-type(1) {
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+  text-align: center;
+}
+
+.weather-box .item:nth-of-type(2) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  font-size: 20px;
+  text-align: left;
+}
+
+::first-letter {
+  text-transform: uppercase;
+}
+
+.weather-box .item:nth-of-type(3) {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  text-align: left;
+}
+
+.weather-box .item:nth-of-type(4) {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+
+.weather-box .item:nth-of-type(5) {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+.weather-box .item:nth-of-type(6) {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+}
+.weather-box .item:nth-of-type(7) {
+  grid-column: 1 / 2;
+  grid-row: 4 / 5;
+}
+
+.weather-box .item:nth-of-type(8) {
+  grid-column: 2 / 4;
+  grid-row: 4 / 5;
+  text-align: right;
+}
+
+.weather-box .item:nth-of-type(9) {
+  grid-column: 1 / 4;
+  grid-row: 5 / 6;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.icon {
+  width: 150px;
+  height: auto;
+}
